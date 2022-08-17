@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7450407237641292802}
   m_LocalRotation: {x: -0, y: -0.7071065, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: 2.6400013, y: -0.804413, z: 0.046370056}
+  m_LocalPosition: {x: 3.5, y: -0.804413, z: 0.046}
   m_LocalScale: {x: 0.10700635, y: 0.11499273, z: 0.24230424}
   m_Children: []
   m_Father: {fileID: 7450407238740195173}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7450407238740195174}
   - component: {fileID: 7450407238740195175}
   - component: {fileID: 7450407238740195172}
-  - component: {fileID: 7450407238740195169}
+  - component: {fileID: -7651209915846363268}
   m_Layer: 0
   m_Name: JumpScareTrigger
   m_TagString: JumpScare
@@ -179,7 +179,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7450407238740195169
+--- !u!114 &-7651209915846363268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,8 +188,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7450407238740195194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510008a44900dee4faa8ac58098e3fd1, type: 3}
+  m_Script: {fileID: 11500000, guid: acc0d20db182ac744ab641af79d2f4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ghost: {fileID: 7450407237641292802}
   speed: 10
+  isForward: 0

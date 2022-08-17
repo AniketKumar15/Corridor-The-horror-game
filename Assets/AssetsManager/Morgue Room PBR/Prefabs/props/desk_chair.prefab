@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 3345074}
   - component: {fileID: 2356902}
   - component: {fileID: 6441986}
+  - component: {fileID: 8680222422946252447}
   m_Layer: 0
   m_Name: chair_regulator4
   m_TagString: Untagged
@@ -143,6 +144,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: f616da8b83bfb3541af0dfe8d4a1199a, type: 3}
+--- !u!114 &8680222422946252447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c174c5a55c239247a5fdbef5b7e4bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1000
 --- !u!1 &144626
 GameObject:
   m_ObjectHideFlags: 0

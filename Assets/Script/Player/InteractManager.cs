@@ -8,7 +8,7 @@ public class InteractManager : MonoBehaviour
     public Transform PlayerCamera;
     [Header("MaxDistance you can open or close the door.")]
     public float MaxDistance = 5;
-    private bool opened = false;
+    private bool checker = false;
     public Text interactText;
 
     [Header("Door")]
@@ -20,13 +20,18 @@ public class InteractManager : MonoBehaviour
 
     [Header("Keys")]
 
-    public bool isPickUp = false;
     public GameObject keyHolder;
 
     public GameObject fire;
 
+    [Header("piller")]
+    public bool isFireBurn = false;
+    public Animator keyPillerAnimation;
+    
+
     void Update()
     {
+
         InteractText();
 
         //This will tell the player press F on the Keyboard.
@@ -36,6 +41,7 @@ public class InteractManager : MonoBehaviour
             
         }
 
+        KeyPiller();
     }
     void InteractText()
     {
@@ -65,12 +71,12 @@ public class InteractManager : MonoBehaviour
                 interactText.text = "[F] On/Off";
             }
             
-            // if raycast hits, then it checks if it hit an object with the tag Switch.
+            // if raycast hits, then it checks if it hit an object with the tag Key.
             if (hit.transform.tag == "Key")
             {
                 interactText.text = "[F] Pick Up";
             }
-
+            // if raycast hits, then it checks if it hit an object with the tag Piller.
             if (hit.transform.tag == "Piller")
             {
                 interactText.text = "[F] to burn fire";
@@ -103,12 +109,12 @@ public class InteractManager : MonoBehaviour
                 anim = hit.transform.GetComponentInParent<Animator>();
 
                 //This will set the bool the opposite of what it is.
-                opened = !opened;
+                checker = !checker;
 
                 if (isLocked == false)
                 {
                     //This line will set the bool true or false so it will play the animation.
-                    if (opened == true)
+                    if (checker == true)
                     {
                         anim.SetBool("CanOpen", true);
                         AudioManager.instance.Play("Door");
@@ -135,16 +141,16 @@ public class InteractManager : MonoBehaviour
                 lightAnim = hit.transform.GetComponentInChildren<Animator>();
 
                 //This will set the bool the opposite of what it is.
-                opened = !opened;
+                checker = !checker;
 
                 //This line will set the bool true or false so it will play the animation.
-                if (opened == true)
+                if (checker == true)
                 {
                     lightAnim.SetBool("CanOpen", true);
                     
                 }
 
-                else if (opened == false)
+                else if (checker == false)
                 {
                     lightAnim.SetBool("CanOpen", false);
                    
@@ -172,19 +178,29 @@ public class InteractManager : MonoBehaviour
                 }
 
             }
-
+            // if raycast hits, then it checks if it hit an object with the tag Piller.
             if (hit.transform.tag=="Piller")
             {
-                opened = true;
+                checker = true;
 
-                if (opened==true)
+                if (checker==true) //If Checker is true, then the fire is burn
                 {
-                    fire = hit.transform.GetChild(1).gameObject;
-                    fire.SetActive(true);
+                    fire = hit.transform.GetChild(1).gameObject; //This line will get the Fire GameObject from Children of the Piller that was hit by the raycast.
+                    fire.SetActive(true); 
+                    isFireBurn = true;
+                    AudioManager.instance.Play("Danger");
                 }
             }
 
 
+        }
+    }
+
+    void KeyPiller()
+    {
+        if (isFireBurn == true) //If fire is burn, then the key piller move upWard and the player is able to get key
+        {
+            keyPillerAnimation.SetTrigger("keyPiller");
         }
     }
 }
