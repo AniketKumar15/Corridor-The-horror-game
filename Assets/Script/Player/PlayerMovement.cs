@@ -25,21 +25,53 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        footSteps();
+        footStepsStart();
+        FootStepsStop();
+        
+        //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) 
+        //{
+        //    AudioManager.instance.Stop("footsteps");
+        //}
     }
 
-    void footSteps()
+    void footStepsStart()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             AudioManager.instance.Play("footsteps");
         }
-        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            AudioManager.instance.Stop("footsteps");
+            AudioManager.instance.Play("footsteps");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            AudioManager.instance.Play("footsteps");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            AudioManager.instance.Play("footsteps");
         }
 
     }
-
+    void FootStepsStop()
+    {
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            AudioManager.instance.Stop("footsteps");
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            AudioManager.instance.Stop("footsteps");
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            AudioManager.instance.Stop("footsteps");
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            AudioManager.instance.Stop("footsteps");
+        }
+    }
     
 }
