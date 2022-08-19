@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class CameraMovement : MonoBehaviour
 {
+   
     public float mouseSen;
     public Transform player;
-
+    
     float rot;
 
     
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -29,6 +31,6 @@ public class CameraMovement : MonoBehaviour
         player.Rotate(player.up * x);
 
     }
-    
+   
 
 }

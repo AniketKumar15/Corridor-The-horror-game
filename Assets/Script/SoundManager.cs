@@ -9,10 +9,10 @@ public class SoundManager : MonoBehaviour
     public Slider soundSlider;
     public AudioMixer audioMixer;
 
+
     public void SetVolume()
     {
         audioMixer.SetFloat("Sound", soundSlider.value);
     }
-
-  
+   
 }

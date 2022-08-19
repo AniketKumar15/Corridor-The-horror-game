@@ -28,12 +28,8 @@ public class PlayerMovement : MonoBehaviour
         footStepsStart();
         FootStepsStop();
         
-        //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) 
-        //{
-        //    AudioManager.instance.Stop("footsteps");
-        //}
     }
-
+    //If player press the these button then footstep sound start
     void footStepsStart()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -54,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    //If player leave these button then the footstep sound stop
     void FootStepsStop()
     {
         if (Input.GetKeyUp(KeyCode.W))

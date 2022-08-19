@@ -10,16 +10,17 @@ public class MonsterStarter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //it check is player here or not if player here then the Monster is coming
         if (other.gameObject.tag=="player")
         {
             if (isStart==true)
             {
-                playerMovement.speed = 7f;
+                playerMovement.speed = 7f; // if monster is coming then the player speed will be increase
                 monster.SetActive(true);
             }
             else
             {
-                playerMovement.speed = 5f;
+                playerMovement.speed = 5f;  // if monster is gone then the player speed will be normal
                 monster.SetActive(false);
             }
             
