@@ -12,6 +12,7 @@ TagManager:
   - NonText
   - Holder
   - Piller
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

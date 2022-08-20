@@ -11,16 +11,30 @@ public class CameraMovement : MonoBehaviour
     public Transform player;
     
     float rot;
-
+    bool isCursorVisible;
     
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isCursorVisible = !isCursorVisible;
+            
+        }
+
+        if (isCursorVisible)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+       
 
         float x = Input.GetAxis("Mouse X") * mouseSen * Time.deltaTime;
         float y = Input.GetAxis("Mouse Y") * mouseSen * Time.deltaTime;

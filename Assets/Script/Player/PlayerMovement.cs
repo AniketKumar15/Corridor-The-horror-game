@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController playerController;
     public float speed;
+    public bool AutoWalk = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +16,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float x_moveMent = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        float Z_moveMent = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        if (AutoWalk == false)
+        {
+            float x_moveMent = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            float Z_moveMent = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-        playerController.Move(transform.forward * Z_moveMent);
-        playerController.Move(transform.right * x_moveMent);
+            playerController.Move(transform.forward * Z_moveMent);
+            playerController.Move(transform.right * x_moveMent);
+        }
+        else if (AutoWalk == true)
+        {
+            speed = 15f;
+            playerController.Move(transform.forward * speed * Time.deltaTime);
+
+        }
+
+        
 
         
     }
